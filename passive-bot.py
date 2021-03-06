@@ -26,7 +26,7 @@ class auto_on:
                     print("[+] [Skill: {}] [Delay: {}]".format(number, second))
                     pyautogui.press("{}".format(number))
                     time.sleep(second - 1)
-                    
+
                 else:
 
                     if int(time.time()) > self.ok + 2:
@@ -38,14 +38,11 @@ class auto_on:
 
                 break
 
-            time.sleep(2)
-
     def execute_combo(self, combo):
 
         for x in combo:
 
             t(max_workers=4).submit(self.skill, x, int(combo[x]))
-            time.sleep(1)
 
     def __init__(self):
 
@@ -65,5 +62,5 @@ class auto_on:
             combo[skill[0]] = skill[1]
 
         self.execute_combo(combo)
-        
+
 auto_on() if __name__ == "__main__" else exit()
