@@ -42,7 +42,7 @@ class auto_on:
 
         for x in combo:
 
-            t(max_workers=10).submit(self.skill, x, int(combo[x]))
+            t(max_workers=100).submit(self.skill, x, int(combo[x]))
 
     def __init__(self):
 
