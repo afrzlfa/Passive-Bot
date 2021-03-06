@@ -29,7 +29,7 @@ class auto_on:
 
                 else:
 
-                    if int(time.time()) > self.ok + 1:
+                    if int(time.time()) > self.ok + 2:
 
                         self.ok = int(time.time())
                         self.done = 0
