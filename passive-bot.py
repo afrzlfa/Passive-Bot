@@ -12,13 +12,21 @@ class auto_on:
 
         if key == keyboard.Key.f1:
 
-            self.stop = True
+            self.start = True
+
+        elif key == keyboard.Key.f2:
+
+            self.start = False
+
+        elif key == keyboard.Key.f3:
+
+            os._exit(0)
 
     def skill(self, number, second):
 
         while (True):
 
-            if self.stop == False:
+            if self.start == True:
 
                 if self.done == 0:
 
@@ -34,9 +42,9 @@ class auto_on:
                         self.ok = int(time.time())
                         self.done = 0
 
-            elif self.stop == True:
+            elif self.start == False:
 
-                break
+                time.sleep(1)
 
     def execute_combo(self, combo):
 
@@ -46,12 +54,12 @@ class auto_on:
 
     def __init__(self):
 
+        self.start = True
         listener =  keyboard.Listener(on_press=self.on_press)
         listener.start()
         self.delay = ''
         self.ok = int(time.time())
         self.done = 0
-        self.stop = False
         combo = {}
         input_skill = input("[*] [Skill (Example: 1|2,3|6,2|6,4|10,5|12)] : ")
         print("\n")
